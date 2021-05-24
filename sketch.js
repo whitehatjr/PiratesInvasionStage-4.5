@@ -17,7 +17,7 @@ function preload() {
   towerImage = loadImage("./assets/tower.png");
   boatSpritedata = loadJSON("assets/boat/boat.json");
   boatSpritesheet = loadImage("assets/boat/boat.png");
-  
+
 }
 
 function setup() {
@@ -36,14 +36,14 @@ function setup() {
     boatAnimation.push(img);
   }
 
-  
+
 }
 
 function draw() {
   background(189);
   image(backgroundImg, 0, 0, width, height);
 
-  
+
   Engine.update(engine);
   ground.display();
 
@@ -60,9 +60,7 @@ function draw() {
           Matter.World.remove(world, balls[i].body);
           balls.splice(i, 1);
           i--;
-          //
-          // Matter.World.remove(world, boats[j].body);
-          // boats.splice(j, 1);
+        
         }
       }
     }
@@ -71,7 +69,7 @@ function draw() {
   cannon.display();
   tower.display();
 
-  
+
 }
 
 
@@ -125,7 +123,7 @@ function showBoats() {
       boats[i].display();
       boats[i].animate();
       var collision = Matter.SAT.collides(tower.body, boats[i].body);
-      
+
     }
   } else {
     var boat = new Boat(width, height - 100, 200, 200, -100, boatAnimation);
@@ -140,5 +138,3 @@ function keyReleased() {
     balls[balls.length - 1].shoot();
   }
 }
-
-
